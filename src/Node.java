@@ -8,12 +8,13 @@ public class Node {
     }
 
     public static class neighbor {
-        public neighbor(String name, int distance){
-            this.name = name;
-            this.distance = distance;
+        public neighbor(String name, int distance)
+        {
+            this.Name = name;
+            this.Distance = distance;
         }
-        public String name;
-        public int distance;
+        public String Name;
+        public int Distance;
     }
 
     public String name;
