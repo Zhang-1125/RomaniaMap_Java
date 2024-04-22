@@ -1,86 +1,34 @@
-20
-Bucharest       0   4   
-Fagaras     211 
-Pitesti     101 
-Giurgiu         90  
-Urziceni    85
+8
+R   2   41.76204559350202 123.41791948973389
+N
+Q
 
-Sibiu           253 4   
-Oradea      151 
-Arad        140 
-Fagaras         99  
-RimnicuVilcea   80
+N   3   41.765600020971135 123.41838478896156
+R
+O
+M
 
-RimnicuVilcea   193 3   
-Sibiu       80  
-Craiova     146
-Pitesti         97
+O   4   41.765521569632206 123.4202605002262
+N
+Q
+G
+P
 
-Craiova         160 3   
-Drobeta     120 
-Pitesti     138 
-RimnicuVilcea   146
+Q   2   41.764175846560825 123.42012210419071
+O
+R
 
-Pitesti         100 3   
-Craiova     138 
-Bucharest   101 
-RimnicuVilcea   97
+G   2   41.766409882041856 123.42035025186334
+O
+H
 
-Arad            366 3   
-Zerind      75  
-Sibiu       140 
-Timisoara       118
+P   2   41.76541941107079 123.42227488199816
+H
+O
 
-Urziceni        80  3   
-Bucharest   85  
-Hirsova     98  
-Vaslui          142
+H   2   41.76630516336603 123.42236263106436
+G
+P
 
-Oradea          380 2   
-Zerind      71  
-Sibiu       151
-
-Zerind          374 2   
-Oradea      71  
-Arad        75
-
-Hirsova         151 2   
-Urziceni    98  
-Eforie      86
-
-Vaslui          199 2   
-Urziceni    142 
-Iasi        92
-
-Iasi            226 2   
-Vaslui      92  
-Neamt       87
-
-Timisoara       329 2   
-Arad        118 
-Lugoj       111
-
-Lugoj           244 2  
-Timisoara   111 
-Mehadia     70
-
-Mehadia         241 2   
-Lugoj       70  
-Drobeta     75
-
-Drobeta         242 2   
-Mehadia     75  
-Craiova     120
-
-Fagaras         176 2   
-Sibiu       99  
-Bucharest   211
-
-Neamt           234 1   
-Iasi        87
-
-Eforie          161 1   
-Hirsova     86
-
-Giurgiu         77  1   
-Bucharest   90
+M   1   41.76565876729373 123.41644963929666
+N
