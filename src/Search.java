@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.util.*;
 
 public class Search {
-    private String start;
-    private String goal;
-    private HashMap<String, Node> graph = new HashMap<>();
-    private HashMap<String, Boolean> explored = new HashMap<>();
+    private final String start;
+    private final String goal;
+    private final HashMap<String, Node> graph = new HashMap<>();
+    private final HashMap<String, Boolean> explored = new HashMap<>();
 
     public Search(String start, String goal, String ss) throws IOException {
         this.start = start; // 设置起始点
@@ -41,7 +41,6 @@ public class Search {
         }
     }
 
-
     void resetExplored() {
         for (HashMap.Entry<String, Boolean> entry : explored.entrySet()) {
             entry.setValue(false);
@@ -67,32 +66,15 @@ public class Search {
         while (!pathStack.isEmpty()) {
             System.out.print(pathStack.pop() + " -> ");
         }
-        System.out.println(tn.node.name);
     }
 
-
-    /**
-     * 实现A*算法寻找从起点到目标点的最短路径。
-     * 该方法不需要参数，也不返回任何值，但要求类中已有以下成员变量和方法：
-     * - graph: 表示图的结构，用于存储节点及其关系；
-     * - start: 起点的名称；
-     * - goal: 目标点的名称；
-     * - explored: 用于记录已经探索过的节点的Map；
-     * - resetExplored: 重置已探索节点的标志的方法；
-     * - Route: 重绘找到的路径的方法。
-     */
     public void AStar() {
         System.out.println("----------------------------A*----------------------------");
 
         // 初始化起始节点和优先队列
         Node startNode = graph.get(start);
         TreeNode root = new TreeNode();
-        Queue<TreeNode> Q = new PriorityQueue<>(new Comparator<TreeNode>() {
-            @Override
-            public int compare(TreeNode o1, TreeNode o2) {
-                return (int) (o1.value - o2.value);
-            }
-        });
+        Queue<TreeNode> Q = new PriorityQueue<>((o1, o2) -> (int) (o1.value - o2.value));
         root.node = startNode;
         root.value = startNode.h;
         Q.add(root);
@@ -130,11 +112,13 @@ public class Search {
                 current.childNum++;
 
                 // 输出邻居节点信息，并根据是否已探索，将其加入优先队列
-                System.out.println("\tChildNode: " + nextNodeName + " \tValue: " + currentChild.value + " \tState: " + explored.get(nextNodeName));
+                System.out.println("\tChildNode: " + nextNodeName + " \tf_cost: " + currentChild.value + " \tState: " + explored.get(nextNodeName));
+
                 if (!explored.get(nextNodeName)) {
                     Q.add(currentChild);
                 }
             }
+            printPriorityQueue(Q);
             System.out.println("--------------------------------------------------------");
         }
         // 如果没有找到目标节点，输出提示信息
@@ -143,5 +127,29 @@ public class Search {
         resetExplored();
     }
 
+    private void printPriorityQueue(Queue<TreeNode> Q) {
+        System.out.println("Current Priority Queue:");
+        for (TreeNode node : Q) {
+            System.out.println("\tNode name: " + node.node.name + "\tValue: " + node.value);
+        }
+        System.out.println();
+    }
+
+    public Node getPosition(double lat, double lng){
+        Node nowPositon = new Node("nowPosition", lat, lng);
+
+        double shortestDistance = Double.MAX_VALUE;
+        Node nearestNode = null;
+
+        for (HashMap.Entry<String, Node> entry : graph.entrySet()) {
+            Node currentNode = entry.getValue();
+            double distance = nowPositon.getDistanceBetween(currentNode);
+            if (distance < shortestDistance) {
+                shortestDistance = distance;
+                nearestNode = currentNode;
+            }
+        }
+        return nearestNode;
+    }
 
 }

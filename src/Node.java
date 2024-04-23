@@ -7,6 +7,11 @@ public class Node {
         this.latitude = latitude;
         this.longitude = longitude;
     }
+    public Node(String name, double latitude, double longitude){
+        this.name = name;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 
     public double latitude;       // 纬度
     public double longitude;      // 经度
